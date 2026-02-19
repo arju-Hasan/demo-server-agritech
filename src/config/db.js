@@ -19,18 +19,42 @@ const connectDB = async () => {
   const uri = process.env.MONGO_URI;
   if (!uri) {
     console.error("MONGO_URI is not set in environment variables.");
-    return;
+    throw new Error("MONGO_URI is not configured");
   }
 
-  try {
-    // Modern mongoose (v6+) and mongodb drivers handle parsing internally.
-    // Connect without deprecated options.
-    await mongoose.connect(uri);
-    console.log("MongoDB connected");
-  } catch (error) {
-    console.error("MongoDB connection error:", error);
-    // Exit the process - prevents server from running without DB
-    process.exit(1);
+  const maxRetries = 3;
+  let retries = 0;
+
+  while (retries < maxRetries) {
+    try {
+      // Connection options for production/serverless environments
+      await mongoose.connect(uri, {
+        serverSelectionTimeoutMS: 15000, // 15 seconds for Vercel
+        socketTimeoutMS: 45000, // Socket timeout
+        connectTimeoutMS: 15000,
+        retryWrites: true,
+        w: "majority",
+        family: 4, // Use IPv4, skip IPv6 issues
+        maxPoolSize: 10,
+        minPoolSize: 5,
+      });
+      console.log("✅ MongoDB connected successfully");
+      return;
+    } catch (error) {
+      retries++;
+      console.error(
+        `MongoDB connection error (Attempt ${retries}/${maxRetries}):`,
+        error.message
+      );
+
+      if (retries >= maxRetries) {
+        console.error("❌ Failed to connect to MongoDB after retries");
+        throw error;
+      }
+
+      // Wait before retrying
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    }
   }
 };
 
