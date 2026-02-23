@@ -1,0 +1,75 @@
+{
+  "description": "User signup/registration examples",
+  "issues_in_your_data": [
+    "farmSize and farmingExperience must be NUMBERS, not strings",
+    "crops must be an ARRAY of strings, not a single string"
+  ],
+  "CORRECT_FARMER_SIGNUP": {
+    "username": "pynoqimyd",
+    "email": "tyjeragesu@mailinator.com",
+    "password": "Pa$$w0rd!",
+    "role": "farmer",
+    "profile": {
+      "firstName": "Jackson",
+      "lastName": "Bender",
+      "phone": "+1 (169) 813-8919",
+      "address": {
+        "division": "Dhaka",
+        "district": "Gazipur",
+        "upazila": "Kaliakoir",
+        "village": "Konabari"
+      }
+    },
+    "farmerData": {
+      "farmSize": 67,
+      "farmingExperience": 58,
+      "crops": ["Rice", "Wheat", "Corn"]
+    }
+  },
+  "ALTERNATIVE_FARMER": {
+    "username": "farmer_rahim",
+    "email": "rahim@example.com",
+    "password": "SecurePass123",
+    "role": "farmer",
+    "profile": {
+      "firstName": "Rahim",
+      "lastName": "Ahmed",
+      "phone": "+880123456789",
+      "address": {}
+    },
+    "farmerData": {
+      "farmSize": 50,
+      "farmingExperience": 10,
+      "crops": ["Tomato", "Cucumber", "Eggplant"]
+    }
+  },
+  "SELLER_SIGNUP": {
+    "username": "seller_ali",
+    "email": "ali@seller.com",
+    "password": "SellerPass123",
+    "role": "seller",
+    "profile": {
+      "firstName": "Ali",
+      "lastName": "Hassan",
+      "phone": "+880987654321"
+    },
+    "sellerData": {
+      "businessName": "Green Seeds Ltd",
+      "businessType": "seeds",
+      "tradeLicense": "TR12345678"
+    }
+  },
+  "VALIDATION_RULES": {
+    "username": "3-30 characters, alphanumeric only (letters and numbers)",
+    "email": "valid email format, required",
+    "password": "minimum 6 characters",
+    "role": "farmer, seller, admin, or management",
+    "profile": "optional",
+    "farmerData": "required if role is farmer",
+    "farmerData.farmSize": "must be a NUMBER",
+    "farmerData.farmingExperience": "must be a NUMBER (years)",
+    "farmerData.crops": "must be an ARRAY of strings",
+    "sellerData": "required if role is seller"
+  },
+  "CURL_EXAMPLE": "curl -X POST http://localhost:8080/auth/signup -H 'Content-Type: application/json' -d '{\"username\": \"pynoqimyd\", \"email\": \"tyjeragesu@mailinator.com\", \"password\": \"Pa$$w0rd!\", \"role\": \"farmer\", \"profile\": {\"firstName\": \"Jackson\", \"lastName\": \"Bender\", \"phone\": \"+1 (169) 813-8919\", \"address\": {}}, \"farmerData\": {\"farmSize\": 67, \"farmingExperience\": 58, \"crops\": [\"Repellendus\", \"Ut\", \"veri\"]}}'"
+}

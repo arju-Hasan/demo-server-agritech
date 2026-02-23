@@ -1,0 +1,72 @@
+{
+  "description": "POST request body examples for sending messages",
+  "examples": [
+    {
+      "name": "Send message to start new conversation",
+      "description": "Send a message to a user (creates conversation if it doesn't exist)",
+      "method": "POST",
+      "url": "http://localhost:8080/messages",
+      "headers": {
+        "Authorization": "Bearer YOUR_JWT_TOKEN_HERE",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "receiverId": "507f1f77bcf86cd799439002",
+        "message": "Hey! How are you doing with your crops?"
+      }
+    },
+    {
+      "name": "Send message to existing conversation",
+      "description": "Send a message in existing conversation",
+      "method": "POST",
+      "url": "http://localhost:8080/messages",
+      "headers": {
+        "Authorization": "Bearer YOUR_JWT_TOKEN_HERE",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "receiverId": "507f1f77bcf86cd799439002",
+        "message": "Thanks for the farming advice!",
+        "conversationId": "507f1f77bcf86cd799439011"
+      }
+    },
+    {
+      "name": "Send message with attachment",
+      "description": "Send a message with image or file attachment",
+      "method": "POST",
+      "url": "http://localhost:8080/messages",
+      "headers": {
+        "Authorization": "Bearer YOUR_JWT_TOKEN_HERE",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "receiverId": "507f1f77bcf86cd799439002",
+        "message": "Check out my crop photos!",
+        "conversationId": "507f1f77bcf86cd799439011",
+        "attachments": [
+          {
+            "type": "image",
+            "url": "https://example.com/crop-image.jpg",
+            "fileName": "crop-image.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reply to a message",
+      "description": "Send a reply to a specific message",
+      "method": "POST",
+      "url": "http://localhost:8080/messages",
+      "headers": {
+        "Authorization": "Bearer YOUR_JWT_TOKEN_HERE",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "receiverId": "507f1f77bcf86cd799439002",
+        "message": "That's great news!",
+        "conversationId": "507f1f77bcf86cd799439011",
+        "replyTo": "607f1f77bcf86cd799439102"
+      }
+    }
+  ]
+}

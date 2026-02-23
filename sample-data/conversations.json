@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "507f1f77bcf86cd799439011",
+    "participants": [
+      "507f1f77bcf86cd799439001",
+      "507f1f77bcf86cd799439002"
+    ],
+    "lastMessage": "Hey! How are you doing?",
+    "lastMessageTime": "2026-02-24T10:30:00Z",
+    "unreadCount": [
+      {
+        "userId": "507f1f77bcf86cd799439001",
+        "count": 2
+      },
+      {
+        "userId": "507f1f77bcf86cd799439002",
+        "count": 0
+      }
+    ],
+    "createdAt": "2026-02-20T08:00:00Z",
+    "updatedAt": "2026-02-24T10:30:00Z"
+  },
+  {
+    "_id": "507f1f77bcf86cd799439012",
+    "participants": [
+      "507f1f77bcf86cd799439001",
+      "507f1f77bcf86cd799439003"
+    ],
+    "lastMessage": "Thanks for the farming advice!",
+    "lastMessageTime": "2026-02-23T15:45:00Z",
+    "unreadCount": [
+      {
+        "userId": "507f1f77bcf86cd799439001",
+        "count": 0
+      },
+      {
+        "userId": "507f1f77bcf86cd799439003",
+        "count": 1
+      }
+    ],
+    "createdAt": "2026-02-18T12:00:00Z",
+    "updatedAt": "2026-02-23T15:45:00Z"
+  }
+]
