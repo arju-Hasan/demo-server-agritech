@@ -5,13 +5,14 @@ const errorHandler = require("./middlewares/error.middleware");
 const app = express();
 
 // middlewares
-app.use(errorHandler);
 app.use(cors());
 app.use(express.json());
 
 // routes
 // Authentication
 app.use("/auth", require("./routes/auth.routes"));
+app.use("/forgot-password", require("./routes/forgot-password"));
+app.use("/reset-password", require("./routes/reset-password"));
 
 // User Management
 app.use("/users", require("./routes/user.routes"));
@@ -48,5 +49,8 @@ app.use("/forum", require("./routes/forum.routes"));
 app.get("/", (req, res) => {
   res.send("Agritech Server is running successfully!");
 });
+
+// Error handling middleware - MUST be last
+app.use(errorHandler);
 
 module.exports = app;
