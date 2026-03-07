@@ -11,7 +11,7 @@ app.use(express.json());
 // routes
 // Authentication
 app.use("/auth", require("./routes/auth.routes"));
-app.use("/forgot-password", require("./routes/forgot-password"));
+app.use("/forget-password", require("./routes/forgot-password"));
 app.use("/reset-password", require("./routes/reset-password"));
 
 // User Management
