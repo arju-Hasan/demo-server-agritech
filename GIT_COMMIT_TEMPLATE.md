@@ -5,7 +5,7 @@
 ```
 feat: Implement secure password reset API with email integration
 
-- Add POST /forgot-password endpoint for token generation
+- Add POST /forget-password endpoint for token generation
 - Add POST /reset-password endpoint for password reset
 - Implement SHA-256 token hashing and bcryptjs password hashing
 - Add email enumeration prevention and 15-minute token expiry
@@ -34,7 +34,7 @@ email integration, and comprehensive documentation.
 - Nodemailer email integration
 
 ## Files Added
-- src/routes/forgot-password.js
+- src/routes/forget-password.js
 - src/routes/reset-password.js
 - 12+ documentation files
 - Thunder Client test collection
@@ -69,17 +69,19 @@ Ready for production deployment
 ## How to Use
 
 ### Option 1: Simple Commit
+
 ```bash
 git add .
 git commit -m "feat: Implement secure password reset API with email integration"
 ```
 
 ### Option 2: Detailed Commit
+
 ```bash
 git add .
 git commit -m "feat: Implement secure password reset API with email integration
 
-- Add POST /forgot-password endpoint for token generation
+- Add POST /forget-password endpoint for token generation
 - Add POST /reset-password endpoint for password reset
 - Implement SHA-256 token hashing and bcryptjs password hashing
 - Add email enumeration prevention and 15-minute token expiry
@@ -89,6 +91,7 @@ git commit -m "feat: Implement secure password reset API with email integration
 ```
 
 ### Option 3: Interactive Commit
+
 ```bash
 git add .
 git commit
@@ -101,12 +104,13 @@ git commit
 **Scope:** Authentication  
 **Breaking:** No  
 **Docs:** Yes  
-**Tests:** Yes  
+**Tests:** Yes
 
 ## Files Changed
 
 ### Added (15+)
-- src/routes/forgot-password.js
+
+- src/routes/forget-password.js
 - src/routes/reset-password.js
 - API_DOCUMENTATION_PASSWORD_RESET.md
 - GMAIL_SETUP_GUIDE.md
@@ -125,6 +129,7 @@ git commit
 - thunder-client-collection.json
 
 ### Modified (3)
+
 - src/app.js
 - .env
 - .gitignore
@@ -143,6 +148,7 @@ Test cases: 8+
 ## Verification
 
 Before committing, verify:
+
 ```bash
 # 1. Check status
 git status

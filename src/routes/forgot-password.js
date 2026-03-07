@@ -6,7 +6,7 @@ const asyncHandler = require("../utils/asyncHandler");
 
 const router = express.Router();
 
-// Forgot Password
+// forget Password
 router.post(
   "/",
   asyncHandler(async (req, res) => {
@@ -82,9 +82,10 @@ router.post(
       success: true,
       message: "If this email exists, a reset link has been sent.",
       // For testing only - remove in production
-      testToken: process.env.NODE_ENV === "development" ? resetToken : undefined,
+      testToken:
+        process.env.NODE_ENV === "development" ? resetToken : undefined,
     });
-  })
+  }),
 );
 
 module.exports = router;
