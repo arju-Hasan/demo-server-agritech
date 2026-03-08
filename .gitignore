@@ -89,3 +89,4 @@ yarn.lock
 *.key
 *.crt
 
+.env*.local
