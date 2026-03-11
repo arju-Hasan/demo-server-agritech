@@ -4,7 +4,9 @@ const registerSchema = Joi.object({
   email: Joi.string().email().required(),
   username: Joi.string().alphanum().min(3).max(30).required(),
   password: Joi.string().min(6).required(),
-  role: Joi.string().valid("farmer", "seller", "admin", "management").default("farmer"),
+  role: Joi.string()
+    .valid("farmer", "seller", "admin", "management")
+    .default("farmer"),
   profile: Joi.object({
     firstName: Joi.string(),
     lastName: Joi.string(),
@@ -28,7 +30,12 @@ const registerSchema = Joi.object({
     is: "seller",
     then: Joi.object({
       businessName: Joi.string(),
-      businessType: Joi.string().valid("seeds", "fertilizers", "tools", "equipment"),
+      businessType: Joi.string().valid(
+        "seeds",
+        "fertilizers",
+        "tools",
+        "equipment",
+      ),
       tradeLicense: Joi.string(),
     }),
   }),
@@ -43,7 +50,7 @@ const refreshTokenSchema = Joi.object({
   refreshToken: Joi.string().required(),
 });
 
-const forgotPasswordSchema = Joi.object({
+const forgetPasswordSchema = Joi.object({
   email: Joi.string().email().required(),
 });
 
@@ -56,6 +63,6 @@ module.exports = {
   registerSchema,
   loginSchema,
   refreshTokenSchema,
-  forgotPasswordSchema,
+  forgetPasswordSchema,
   resetPasswordSchema,
 };

@@ -3,13 +3,13 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 // Generate Tokens
-const generateAccessToken = (userId) => {
+const generateAccessToken = userId => {
   return jwt.sign({ id: userId }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE || "7d",
   });
 };
 
-const generateRefreshToken = (userId) => {
+const generateRefreshToken = userId => {
   return jwt.sign({ id: userId }, process.env.JWT_REFRESH_SECRET, {
     expiresIn: process.env.JWT_REFRESH_EXPIRE || "30d",
   });
@@ -18,7 +18,8 @@ const generateRefreshToken = (userId) => {
 // Register User
 exports.register = async (req, res) => {
   try {
-    const { email, username, password, role, profile, farmerData, sellerData } = req.body;
+    const { email, username, password, role, profile, farmerData, sellerData } =
+      req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({
@@ -28,7 +29,10 @@ exports.register = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({
         success: false,
-        message: existingUser.email === email ? "Email already exists" : "Username already exists",
+        message:
+          existingUser.email === email
+            ? "Email already exists"
+            : "Username already exists",
       });
     }
 
@@ -214,8 +218,8 @@ exports.refreshToken = async (req, res) => {
   }
 };
 
-// Forgot Password
-exports.forgotPassword = async (req, res) => {
+// forget Password
+exports.forgetPassword = async (req, res) => {
   try {
     const { email } = req.body;
 

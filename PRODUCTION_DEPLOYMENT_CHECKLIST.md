@@ -9,6 +9,7 @@
 ## 📋 Pre-Deployment Checklist
 
 ### ✅ Code Quality
+
 - [x] API endpoints implemented
 - [x] Error handling in place
 - [x] Security measures implemented
@@ -17,6 +18,7 @@
 - [x] Response formatting correct
 
 ### ✅ Security
+
 - [x] Password hashing (bcryptjs)
 - [x] Token hashing (SHA-256)
 - [x] Email enumeration prevention
@@ -25,6 +27,7 @@
 - [x] Input sanitization
 
 ### ✅ Testing
+
 - [x] Unit tests passed
 - [x] Integration tests passed
 - [x] API endpoints tested
@@ -33,6 +36,7 @@
 - [x] Security features verified
 
 ### ✅ Documentation
+
 - [x] API documentation complete
 - [x] Setup guides created
 - [x] Test reports generated
@@ -40,6 +44,7 @@
 - [x] README files created
 
 ### ✅ Configuration
+
 - [x] Environment variables set
 - [x] Database connection working
 - [x] MongoDB configured
@@ -53,6 +58,7 @@
 ### Step 1: Environment Setup
 
 **Production .env:**
+
 ```env
 # Server
 PORT=8080
@@ -113,7 +119,7 @@ pm2 start src/server.js --name "agritech-api"
 curl http://localhost:8080/
 
 # Test API
-curl -X POST http://localhost:8080/forgot-password \
+curl -X POST http://localhost:8080/forget-password \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com"}'
 ```
@@ -123,6 +129,7 @@ curl -X POST http://localhost:8080/forgot-password \
 ## 📁 Files to Ignore in Production
 
 ### Documentation Files (Not needed in production)
+
 ```
 GMAIL_SETUP_GUIDE.md
 GMAIL_STEP_BY_STEP.md
@@ -136,6 +143,7 @@ TESTING_GUIDE.md
 ```
 
 ### Test Files
+
 ```
 thunder-client-tests.json
 thunder-client-collection.json
@@ -145,6 +153,7 @@ test-*.js
 ```
 
 ### Configuration Files
+
 ```
 .env (use .env.production instead)
 .env.local
@@ -158,6 +167,7 @@ test-*.js
 ## 🔐 Security Checklist
 
 ### Before Deployment
+
 - [ ] Change all default secrets
 - [ ] Update JWT secrets
 - [ ] Configure production email
@@ -168,6 +178,7 @@ test-*.js
 - [ ] Enable security headers
 
 ### Environment Variables
+
 - [ ] MONGO_URI - Production database
 - [ ] JWT_SECRET - Strong random string
 - [ ] JWT_REFRESH_SECRET - Strong random string
@@ -176,6 +187,7 @@ test-*.js
 - [ ] FRONTEND_URL - Production domain
 
 ### API Security
+
 - [ ] Input validation enabled
 - [ ] Rate limiting configured
 - [ ] CORS configured
@@ -188,16 +200,19 @@ test-*.js
 ## 📊 Performance Optimization
 
 ### Database
+
 - [x] Indexes created
 - [x] Queries optimized
 - [x] Connection pooling configured
 
 ### API
+
 - [x] Response compression enabled
 - [x] Caching configured
 - [x] Error handling optimized
 
 ### Monitoring
+
 - [ ] Error tracking (Sentry)
 - [ ] Performance monitoring (New Relic)
 - [ ] Log aggregation (ELK)
@@ -208,6 +223,7 @@ test-*.js
 ## 🔄 Deployment Platforms
 
 ### Vercel
+
 ```bash
 # Deploy
 vercel deploy --prod
@@ -219,6 +235,7 @@ vercel env add MONGO_URI
 ```
 
 ### Heroku
+
 ```bash
 # Deploy
 git push heroku main
@@ -229,6 +246,7 @@ heroku config:set EMAIL_PASS=your-password
 ```
 
 ### AWS
+
 ```bash
 # Deploy to EC2/ECS
 aws deploy push --application-name agritech-api
@@ -237,6 +255,7 @@ aws deploy push --application-name agritech-api
 ```
 
 ### DigitalOcean
+
 ```bash
 # Deploy to App Platform
 doctl apps create --spec app.yaml
@@ -251,6 +270,7 @@ docker run -p 8080:8080 agritech-api
 ## 📈 Monitoring & Logging
 
 ### Logs to Monitor
+
 ```
 ✅ Email sending status
 ✅ Password reset attempts
@@ -261,6 +281,7 @@ docker run -p 8080:8080 agritech-api
 ```
 
 ### Alerts to Set Up
+
 ```
 ⚠️ High error rate
 ⚠️ Database connection failed
@@ -274,6 +295,7 @@ docker run -p 8080:8080 agritech-api
 ## 🔧 Maintenance
 
 ### Regular Tasks
+
 - [ ] Monitor error logs
 - [ ] Check email delivery
 - [ ] Verify database backups
@@ -282,12 +304,14 @@ docker run -p 8080:8080 agritech-api
 - [ ] Test disaster recovery
 
 ### Monthly
+
 - [ ] Review API performance
 - [ ] Check security vulnerabilities
 - [ ] Update documentation
 - [ ] Review user feedback
 
 ### Quarterly
+
 - [ ] Security audit
 - [ ] Performance optimization
 - [ ] Dependency updates
@@ -300,6 +324,7 @@ docker run -p 8080:8080 agritech-api
 ### Common Issues
 
 **Email not sending:**
+
 ```
 1. Check EMAIL_USER and EMAIL_PASS
 2. Verify Gmail app password
@@ -308,6 +333,7 @@ docker run -p 8080:8080 agritech-api
 ```
 
 **Database connection failed:**
+
 ```
 1. Verify MONGO_URI
 2. Check network connectivity
@@ -316,6 +342,7 @@ docker run -p 8080:8080 agritech-api
 ```
 
 **API errors:**
+
 ```
 1. Check server logs
 2. Verify environment variables
@@ -334,7 +361,7 @@ docker run -p 8080:8080 agritech-api
 curl http://your-domain.com/
 
 # 2. Test API
-curl -X POST http://your-domain.com/forgot-password \
+curl -X POST http://your-domain.com/forget-password \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com"}'
 
@@ -359,25 +386,28 @@ tail -f logs/app.log
 ✅ Logs being recorded  
 ✅ Monitoring active  
 ✅ Backups configured  
-✅ Security measures in place  
+✅ Security measures in place
 
 ---
 
 ## 📝 Post-Deployment
 
 ### Day 1
+
 - [ ] Monitor error logs
 - [ ] Check email delivery
 - [ ] Verify API performance
 - [ ] Test all endpoints
 
 ### Week 1
+
 - [ ] Review user feedback
 - [ ] Check security logs
 - [ ] Verify backups
 - [ ] Update documentation
 
 ### Month 1
+
 - [ ] Performance analysis
 - [ ] Security audit
 - [ ] Dependency updates

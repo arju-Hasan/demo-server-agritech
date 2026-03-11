@@ -6,7 +6,7 @@ Implemented a secure password reset API with email integration, comprehensive do
 ## Features Added
 
 ### API Endpoints
-- POST /forgot-password: Generate secure reset tokens and send email
+- POST /forget-password: Generate secure reset tokens and send email
 - POST /reset-password: Reset password using valid token
 
 ### Security Implementation
@@ -34,7 +34,7 @@ Implemented a secure password reset API with email integration, comprehensive do
 ## Files Added
 
 ### Core Implementation
-- src/routes/forgot-password.js: Forgot password endpoint
+- src/routes/forget-password.js: forget password endpoint
 - src/routes/reset-password.js: Reset password endpoint
 
 ### Documentation
@@ -61,7 +61,7 @@ Implemented a secure password reset API with email integration, comprehensive do
 ### Configuration
 - .env: Added EMAIL_USER and EMAIL_PASS configuration
 - .gitignore: Added production-unnecessary files to ignore list
-- src/app.js: Added forgot-password and reset-password routes
+- src/app.js: Added forget-password and reset-password routes
 
 ## Configuration
 
@@ -86,14 +86,14 @@ Added the following to .gitignore:
 
 ### Test Results
 ✅ User registration: PASS
-✅ Forgot password: PASS (token generated and hashed)
+✅ forget password: PASS (token generated and hashed)
 ✅ Reset password: PASS (password updated successfully)
 ✅ Error handling: PASS
 ✅ Input validation: PASS
 ✅ Security features: PASS
 
 ### Performance
-- Forgot password: ~100ms
+- forget password: ~100ms
 - Reset password: ~80ms
 - Token generation: ~10ms
 - Password hashing: ~50ms
@@ -117,9 +117,9 @@ User model fields used:
 
 ## API Endpoints
 
-### Forgot Password
+### forget Password
 ```
-POST /forgot-password
+POST /forget-password
 Content-Type: application/json
 
 Request:
@@ -208,7 +208,7 @@ Implements password reset functionality for user account recovery.
 
 ## Future Enhancements
 
-- Rate limiting for forgot-password endpoint
+- Rate limiting for forget-password endpoint
 - SMS-based password reset option
 - Two-factor authentication integration
 - Password reset history logging

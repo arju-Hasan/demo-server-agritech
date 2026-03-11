@@ -8,9 +8,11 @@ const PORT = process.env.PORT || 8080;
   try {
     // Wait for database connection before starting server
     await connectDB();
-    
+
     app.listen(PORT, () => {
-      console.log(`✅ Server running on port ${PORT}, http://localhost:${PORT}/`);
+      console.log(
+        `✅ Server running on port ${PORT}, http://localhost:${PORT}/`,
+      );
     });
   } catch (error) {
     console.error("❌ Failed to start server:", error.message);
@@ -18,4 +20,4 @@ const PORT = process.env.PORT || 8080;
   }
 })();
 
-
+0;
