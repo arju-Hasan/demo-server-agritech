@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["seeds", "fertilizers", "tools", "equipment", "pesticides", "other"],
+    enum: ["seeds", "fertilizers", "tools", "equipment", "pesticides", "tea", "other"],
     required: true,
   },
   price: {
