@@ -45,6 +45,9 @@ app.use("/reviews", require("./routes/review.routes"));
 app.use("/blog", require("./routes/blog.routes"));
 app.use("/forum", require("./routes/forum.routes"));
 
+// Payment - Subscriptions
+app.use("/api/payment", require("./routes/payment.routes"));
+
 // test route
 app.get("/", (req, res) => {
   res.send("Agritech Server is running successfully!");
